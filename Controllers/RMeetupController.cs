@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CycleUpAPI.Controllers.Filters;
 using CycleUpAPI.Entities;
 using CycleUpAPI.Models;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ namespace CycleUpAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [TimeTrackFilter]
     public class RMeetupController : ControllerBase
     {
         private readonly CycleContext cycleContext;

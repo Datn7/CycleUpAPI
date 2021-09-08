@@ -16,9 +16,15 @@ namespace CycleUpAPI
         public DbSet<Meetup> Meetups { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Hangout> Hangouts { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Role);
+
             modelBuilder.Entity<Meetup>()
                 .HasOne(m => m.Location)
                 .WithOne(l => l.Meetup)
